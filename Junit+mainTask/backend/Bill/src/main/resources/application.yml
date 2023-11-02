@@ -1,0 +1,33 @@
+server:
+  port: 1006
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: BILL-SERVICE
+    
+# Kafka configuration
+#  kafka:
+#   consumer:
+#    bootstrap-servers:
+#      - localhost:9092
+#    group-id: personal
+#    auto-offset-reset: earliest
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#  autoconfigure:
+#    exclude:
+#    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    
+#database configuration
+  data:
+    mongodb:
+      database: MyApplication
+      host: localhost
+
+#eureka configuration
+eureka:
+  client:
+    service-url:
+      defaultzone : http://localhost:8761/eureka
+      

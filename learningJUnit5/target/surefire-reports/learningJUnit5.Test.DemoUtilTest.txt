@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: learningJUnit5.Test.DemoUtilTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s -- in learningJUnit5.Test.DemoUtilTest

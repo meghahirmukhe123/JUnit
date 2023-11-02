@@ -1,0 +1,58 @@
+server:
+  port: 1004
+  
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: API-GATEWAY
+    
+  cloud:
+    gateway:
+      routes:
+      - id: USERDETAILS-SERVICE 
+        uri: lb://USERDETAILS-SERVICE
+        predicates:
+        - Path= /getall,/getbyid/**,/getbyemailid/**,/update/**,/delete/**,/save
+        filters:
+        - AuthenticationFilter
+      
+        
+      - id: PERSONALDETAILS-SERVICE
+        uri: lb://PERSONALDETAILS-SERVICE
+        predicates:
+        - Path= /getallpersonaldetails,/getbypersonalid/**,/getpersonaldetailsbyemialId/**,/savePersonalDetails,/deletePersonalDetails/**,/updatebyEmailid/**
+        filters:
+        - AuthenticationFilter
+        
+      - id: PRODUCTDETAILS-SERVICE
+        uri: lb://PRODUCTDETAILS-SERVICE
+        predicates:
+        - Path= /getallproducts,/getbyproductid/**,/getproductbyemailid/**,/saveProductDetails,/deleteProductdetails/**,/updatebyemailid/**
+        filters:
+        - AuthenticationFilter
+        
+      - id: IDENTITY-SERVICE   
+        uri: lb://IDENTITY-SERVICE  
+        predicates:
+        - Path=  /auth/**,/auth/register,/auth/token
+        
+
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+
+      
+
+  
+
+      
+
+      

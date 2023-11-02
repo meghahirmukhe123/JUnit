@@ -1,0 +1,19 @@
+server:
+  port: 1003
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: PRODUCTDETAILS-SERVICE
+    
+#database configuration
+  data:
+    mongodb:
+      database: MyApplication
+      host: localhost
+
+#eureka configuration
+eureka:
+  client:
+    service-url:
+      defaultzone : http://localhost:8761/eureka
